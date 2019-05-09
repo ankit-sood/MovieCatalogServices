@@ -1,4 +1,4 @@
-package com.product;
+package com.moviecatalog;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
