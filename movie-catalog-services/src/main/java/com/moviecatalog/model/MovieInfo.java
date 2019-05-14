@@ -1,9 +1,11 @@
-package com.movieinfo.model;
+package com.moviecatalog.model;
 
 public class MovieInfo {
 	private String movieId;
 	private String name;
 	private String desc;
+	
+	public MovieInfo() {}
 	
 	public MovieInfo(String movieId, String name,String desc) {
 		super();
