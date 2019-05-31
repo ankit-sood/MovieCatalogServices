@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
 
 import com.moviecatalog.model.CatalogItem;
@@ -14,9 +14,11 @@ import com.moviecatalog.model.Ratings;
 
 @Service
 public class MovieCatalogService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
-	public List<CatalogItem> getCatalog(@PathVariable("userId") String userId){
-		RestTemplate restTemplate = new RestTemplate();
+	public List<CatalogItem> getCatalog(String userId){
 		//get all the rated movies
 		List<Ratings> ratings = getRatingsList();
 		//For each movie ID, call movie info service and get details

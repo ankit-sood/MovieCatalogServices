@@ -1,6 +1,5 @@
 package com.moviecatalog.controller;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ import com.moviecatalog.service.MovieCatalogService;
 public class MovieCatalogController {
 	
 	@Autowired
-	MovieCatalogService movieCatalogService;
+	private MovieCatalogService movieCatalogService;
 	
 	@GetMapping("/{userId}")
 	public List<CatalogItem> getCatalog(@PathVariable("userId") String userId){
