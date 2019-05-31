@@ -1,12 +1,12 @@
 package com.moviecatalog.model;
 
-public class Ratings {
+public class Rating {
 	private String movieId;
 	private int rating;
 	
-	public Ratings() {}
+	public Rating() { }
 	
-	public Ratings(String movieId, int rating) {
+	public Rating(String movieId, int rating) {
 		super();
 		this.movieId = movieId;
 		this.rating = rating;
