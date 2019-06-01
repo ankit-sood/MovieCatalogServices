@@ -19,10 +19,10 @@ public class MovieCatalogService {
 	
 	public List<CatalogItem> getCatalog(String userId){
 		//get all the rated movies
-		UserRating userRating = restTemplate.getForObject("http://localhost:8083/ratings/users/"+userId, UserRating.class);
+		UserRating userRating = restTemplate.getForObject("http://ratings-data-service/ratings/users/"+userId, UserRating.class);
 		//For each movie ID, call movie info service and get details
 		List<CatalogItem> catalogs = userRating.getUserRatings().stream().map(rating ->{
-			MovieInfo movieInfo = restTemplate.getForObject("http://localhost:8082/movies/"+rating.getMovieId(), MovieInfo.class);
+			MovieInfo movieInfo = restTemplate.getForObject("http://movie-info-service/movies/"+rating.getMovieId(), MovieInfo.class);
 			return new CatalogItem(movieInfo.getName(), movieInfo.getDesc(), rating.getRating());
 		}).collect(Collectors.toList());
 		return catalogs;
